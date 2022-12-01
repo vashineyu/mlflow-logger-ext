@@ -1,6 +1,6 @@
 # Run lint
 
-name: lint
+name: lint_and_test
 
 on:
   push:
@@ -37,3 +37,6 @@ jobs:
 
       - name: lint codes
         run: python -m poetry run flake8 mlflow_logger_ext/
+
+      - name: run-pytest
+        run: python -m poetry run pytest mlflow_logger_ext/
