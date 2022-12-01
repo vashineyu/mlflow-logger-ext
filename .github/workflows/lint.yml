@@ -1,0 +1,35 @@
+# Run lint
+
+name: lint
+
+on:
+  push:
+    branches:
+      - main
+      - *
+    tags-ignore:
+      - *
+  pull_request:
+    branches:
+      - *
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: lint-me
+    runs-on: ubuntu-latest
+    steps:
+      - name: repository checkout
+        uses: actions/checkout@v3
+
+      - name: setup env
+        uses: actions/setup-python@v4
+          with:
+            python-version: 3.9
+        run: pip install flake8
+
+      - name: lint codes
+        run: flake8 mlflow_logger_ext
