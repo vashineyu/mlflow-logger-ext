@@ -76,9 +76,10 @@ def pseudofunction(params3, params4, *args, **kwargs):
 
 
 def fetch_check_data(teleport):
-    exp_id = mlflow.get_experiment_by_name(teleport.experiment_name).experiment_id
-    run_info = mlflow.search_runs(experiment_ids=[exp_id])[0]
-    run_data = mlflow.get_run(run_info.run_id)
+    experiment = mlflow.get_experiment_by_name(teleport.experiment_name)
+    # run_info = mlflow.search_runs(experiment_ids=[exp_id])[0]
+    run_info = mlflow.search_runs(experiment_names=[experiment.name])
+    run_data = mlflow.get_run(run_info.loc[0].run_id)
     return run_data
 
 
