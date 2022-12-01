@@ -30,16 +30,10 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: Install pre-commit hook
+      - name: install dependencies
         run: |
-          pip install pre-commit
-          pre-commit install
+          python -m pip install poetry==1.1.15
+          python -m poetry install
 
-      - name: Linting
-        run: pre-commit run --all-files
-
-      # - name: install flake8
-      #   run: pip install flake8
-
-      # - name: lint codes
-      #   run: flake8 mlflow_logger_ext
+      - name: lint codes
+        run: python -m poetry run flake8 mlflow_logger_ext/
