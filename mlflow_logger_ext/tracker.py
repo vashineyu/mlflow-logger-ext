@@ -11,7 +11,7 @@ class TrackMetric(MlFlowBaseLogger):
         self,
         function: Callable,
         names: Union[list, str],
-        collect: Union[list, str, None] = None,
+        collect: Union[list, str, None] = None
     ):
         super().__init__(function=function)
         self.names = names if isinstance(names, list) else [names]
