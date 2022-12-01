@@ -1,6 +1,7 @@
 import inspect
-import mlflow
 from typing import Callable, Union
+
+import mlflow
 
 from .base import MlFlowBaseLogger
 
