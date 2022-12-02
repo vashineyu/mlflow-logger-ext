@@ -1,6 +1,6 @@
 # Run lint
 
-name: lint_and_test
+name: lint-and-test
 
 on:
   push:
@@ -18,8 +18,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  lint:
-    name: lint
+  check:
+    name: lint-and-test
     runs-on: ubuntu-latest
     steps:
       - name: repository checkout
@@ -37,6 +37,7 @@ jobs:
 
       - name: lint codes
         run: python -m poetry run flake8 mlflow_logger_ext/
+        continue-on-error: true
 
       - name: run-pytest
         run: python -m poetry run pytest mlflow_logger_ext/
