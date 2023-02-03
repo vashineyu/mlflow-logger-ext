@@ -1,5 +1,5 @@
 include:
-  - project: 'aetherAI/Pypi-Project-Template'
+  - project: 'DYSK_Labs/pypi-project-template'
     ref: v4.x
     file:
       - ci-templates/test.gitlab-ci.yml
