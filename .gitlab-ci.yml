@@ -1,0 +1,6 @@
+include:
+  - project: 'aetherAI/Pypi-Project-Template'
+    ref: v4.x
+    file:
+      - ci-templates/test.gitlab-ci.yml
+      - ci-templates/publish.gitlab-ci.yml
