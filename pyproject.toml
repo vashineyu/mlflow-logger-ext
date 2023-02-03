@@ -15,11 +15,11 @@ nitpick = "^0.32.0"
 black = "^22.10"
 flake8 = "^4.0.1"
 pytest = "^7.2.0"
-wemake-python-styleguide = ">=0.15"
+wemake-python-styleguide = ">=0.17"
 
 [tool.nitpick]
 style = [
-    "./lint.toml",
+    "https://github.com/aetherAI/Pypi-Project-Template/blob/v4.x/nitpick-style/lint.toml",
 ]
 cache = "never"
 
