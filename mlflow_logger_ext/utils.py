@@ -42,10 +42,10 @@ def set_experiment(teleport: Teleport):
     mlflow.set_experiment(teleport.experiment_name)
     # DONT REMOVE. Keep here as memo -- The RunName on the MLFLow platform is a `tag`, not this one...
     # mlflow.start_run(run_name=teleport.run_name, nested=True)
-    mlflow.set_tag("mlflow.runName", teleport.run_name)
+    mlflow.set_tag('mlflow.runName', teleport.run_name)
 
     try:
-        git_commit_version = git.Repo(search_parent_directories=True).head.object.hexsha,
+        git_commit_version = git.Repo(search_parent_directories=True).head.object.hexsha
     except git.InvalidGitRepositoryError:
         git_commit_version = ''
 

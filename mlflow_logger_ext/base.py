@@ -2,8 +2,6 @@ import inspect
 from functools import partial, update_wrapper
 from typing import Any, Callable, Optional
 
-from .utils import Teleport, get_mlflow_env
-
 
 class MlFlowBaseLogger:
     """MLFlow base logger.
@@ -54,7 +52,6 @@ class MlFlowBaseLogger:
 
         Must call self._set_experiment at begining.
         """
-        teleport = get_mlflow_env()
         return self._call_impl(
             obj=None,
             *args,
