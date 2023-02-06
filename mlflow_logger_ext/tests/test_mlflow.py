@@ -22,6 +22,7 @@ def teleport(mlruns_dir: pathlib.Path):
         experiment_name='it-is-unittest1',
         tracking_url=str(mlruns_dir),
         artifact_location=str(mlruns_dir),
+        run_name='i-am-test',
     )
 
 

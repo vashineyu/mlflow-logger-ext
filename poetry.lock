@@ -884,7 +884,7 @@ python-versions = ">=3.7"
 name = "loguru"
 version = "0.6.0"
 description = "Python logging made (stupidly) simple"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -1990,7 +1990,7 @@ watchdog = ["watchdog"]
 name = "win32-setctime"
 version = "1.1.0"
 description = "A small Python utility to set file creation time on Windows"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -2012,7 +2012,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "flake8 (<5)", "pytest-co
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "03f9542fc12be3eec28abd0225d9a42ea9646e3e64294420a01811d427dc2ab8"
+content-hash = "f2084602e25fd5227fced8a3e2d301ec4b454c323b64da3830b69cf5b5c1126a"
 
 [metadata.files]
 alembic = [

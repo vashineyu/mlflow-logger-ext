@@ -2,8 +2,6 @@ import inspect
 from functools import partial, update_wrapper
 from typing import Any, Callable, Optional
 
-from .utils import Teleport, get_mlflow_env, set_experiment
-
 
 class MlFlowBaseLogger:
     """MLFlow base logger.
@@ -36,17 +34,29 @@ class MlFlowBaseLogger:
         signature = inspect.signature(function)
         return 'self' in signature.parameters
 
-    def _call_impl(self, obj=None, teleport: Optional[Teleport] = None, *args, **kwargs):
+    def _call_impl(
+        self,
+        obj=None,
+        *args,
+        **kwargs,
+    ):
         return self.execute(*args, **kwargs)
 
-    def __call__(self, obj=None, teleport: Optional[Teleport] = None, *args, **kwargs):
+    def __call__(
+        self,
+        obj=None,
+        *args,
+        **kwargs,
+    ):
         """Used for acting as decorator to deco main calling function.
 
         Must call self._set_experiment at begining.
         """
-        teleport = get_mlflow_env()
-        set_experiment(teleport)
-        return self._call_impl(obj=None, teleport=None, *args, **kwargs)
+        return self._call_impl(
+            obj=None,
+            *args,
+            **kwargs,
+        )
 
     def __get__(self, obj, objtype):
         return partial(self._call_impl, obj)

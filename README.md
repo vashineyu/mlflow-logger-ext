@@ -7,7 +7,7 @@ Why `mlflow-logger-extension`: To record experiments with MlFlow with minimum co
 
 ### From pip
 ```bash
-$ pip install mlflow-logger-extension
+$ pip install mlflow-logger-ext
 ```
 
 ### From source
@@ -56,7 +56,7 @@ def train(arg1: int, arg2: str, arg3: float):
 
 **With logger extension**
 ```python
-from mlflow_logger_extension import mlflow_wrapper
+from mlflow_logger_ext import mlflow_wrapper
 
 @mlflow_wrapper.param()
 def train(arg1: int, arg2: str, arg3: float):
