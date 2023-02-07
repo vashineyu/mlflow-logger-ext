@@ -4,3 +4,6 @@ include:
     file:
       - ci-templates/test.gitlab-ci.yml
       - ci-templates/publish.gitlab-ci.yml
+
+default:
+  image: python:3.9
