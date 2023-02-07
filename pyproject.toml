@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mlflow-logger-ext"
-version = "0.2.2"
+version = "0.2.3"
 description = "Using python decorator to manage MlFlow"
 authors = ["seanyu <weihsiang.yu@gmail.com>"]
 
