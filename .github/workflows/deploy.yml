@@ -1,0 +1,33 @@
+name: deploy
+
+on: push
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    name: build-and-publish
+    runs-on: ubuntu-latest
+    if: startsWith(github.event.ref, 'refs/tags')
+    steps:
+      - uses: actions/checkout@v3
+      - name: setup-python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      - name: install-dependencies
+        run: |
+          python -m pip install poetry==1.1.15
+          poetry build
+      - name: build-n-publish
+        env:
+          PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: |
+          rm -rf dist
+          poetry publish --build --username=$PYPI_USERNAME --password=$PYPI_PASSWORD
