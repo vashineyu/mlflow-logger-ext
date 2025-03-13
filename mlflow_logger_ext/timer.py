@@ -33,7 +33,7 @@ class TimeProfiler(ContextDecorator):
         log_every: int = 1,
         mlflow_sync: bool = False,
     ):
-        self.name = f'{name} ({log_every})'
+        self.name = f'{name}/{log_every}'
         self.log_to_mlflow = log_to_mlflow
         self.log_every = log_every
         self.mlflow_sync = mlflow_sync
