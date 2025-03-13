@@ -14,11 +14,11 @@ gitpython = "*"
 [tool.poetry.dev-dependencies]
 ipython = "*"
 ipykernel = "*"
-nitpick = "^0.32.0"
+# nitpick = "^0.32.0"
 black = "^22.10"
-flake8 = "^4.0.1"
+flake8 = "^7.1.2"
 pytest = "^7.2.0"
-wemake-python-styleguide = ">=0.17"
+# wemake-python-styleguide = "^0.19.2"
 
 [tool.nitpick]
 style = [
