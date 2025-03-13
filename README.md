@@ -20,6 +20,7 @@ $ pip install .
 ## Usage
 Some example use case can be learned from [testcases](mlflow_logger_ext/tests/test_mlflow.py).
 
+### Tracker
 0. Setup recording infomation
 ```python
 from mlflow_logger_ext.utils import Teleport, set_experiment
@@ -96,3 +97,34 @@ def pseudofunction(
     return np.random.random(), np.random.random()
 ```
 You want to record both inputs and outputs of a single function. Just stack them together.
+
+
+### TimeProfiler
+Log the function or block execution time and record the information using MLFlow
+
+0. Setup environment
+Just follow the normal MLFlow setting
+
+1. Loging the execution time of a block
+```python
+from ... import TimeProfiler
+
+
+for i in range(100):
+    with TimeProfiler('my-block-name', log_every=10):
+        ... # do something
+```
+This will tell the logger to log every `10` iterations. (Activate the logger when touch the profiler `log_every` times.)
+
+
+2. Logging the execution time of a function - Just add a decorator to the function (or Class function)
+```python
+from ... import TimeProfiler
+
+@TimeProfiler('my-function-name', log_every=1)
+def my_awesome_function(...)
+    ... # do something
+    return
+
+x = my_awesome_function(...)
+```
