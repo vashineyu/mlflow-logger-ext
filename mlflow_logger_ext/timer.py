@@ -52,7 +52,7 @@ class TimeProfiler(ContextDecorator):
         if (TimeProfiler._counters[self.name] % self.log_every) == 0:
             if self.log_to_mlflow:
                 mlflow.log_metric(
-                    f'{self.name}_time',
+                    f'T.{self.name}',
                     time_comsume,
                     step=current_function_call_step,
                     synchronous=self.mlflow_sync,
